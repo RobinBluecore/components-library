@@ -2,5 +2,14 @@
  * Public API Surface of common-components-library
  */
 
-export * from './lib/common-components-library.service';
-export * from './lib/common-components-library.component';
+//COMPONENTS
+export * from './lib/components/gb-btn/gb-btn.component';
+export * from './lib/components/gb-checkbox/gb-checkbox.component';
+
+//SERVICES
+export * from './lib/stores/app-store.service';
+export * from './lib/stores/utils.service';
+
+//TYPES
+export * from './lib/types/FormObject';
+export * from './lib/types/User';
