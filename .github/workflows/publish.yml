@@ -43,8 +43,8 @@ jobs:
       # Manually Log In to JFrog
       - name: Authenticate with JFrog CLI
         run: |
-          npm config set registry "https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/ --global=true --repo-resolve=jfrog-test-npm --repo-deploy=jfrog-test-npm"
-          npm login --registry=https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/ --scope=@your-scope --auth-type=legacy --always-auth=true
+          npm config set registry "https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/
+          npm login --registry=https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/
         env:
           NPM_USERNAME: ${{ secrets.JFROG_USER }}
           NPM_PASSWORD: ${{ secrets.JFROG_ACCESS_TOKEN }}
