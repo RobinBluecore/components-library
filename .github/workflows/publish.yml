@@ -32,6 +32,12 @@ jobs:
       # Build the Library
       - name: Build the Library
         run: npm run build-prod
+      
+      # Debug Secrets
+      - name: Debug Secrets
+        run: echo "JFROG_API_KEY length: ${#JFROG_ACCESS_TOKEN}"
+        env:
+          JFROG_API_KEY: ${{ secrets.JFROG_ACCESS_TOKEN }}
 
       # Authenticate to JFrog Artifactory
       - name: Configure NPM for JFrog
