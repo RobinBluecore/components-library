@@ -33,21 +33,12 @@ jobs:
       - name: Build the Library
         run: npm run build-prod
 
-      # Set up JFrog CLI
-      - name: Setup JFrog CLI
-         uses: jfrog/setup-jfrog-cli@v4
-         env:  
-           JFROG_URL: ${{ vars.JFROG_URL}}
-           JFROG_ACCESS_TOKEN: ${{ secrets.JFROG_ACCESS_TOKEN }}
-
-      # Set JFrog CLI Config
-      - name: Set CLI Config
-         run: jf npm-config --global=true --repo-resolve=jfrog-test-npm --repo-deploy=jfrog-test-npm
-
       # Authenticate to JFrog Artifactory
       - name: Configure NPM for JFrog
         run: |
           echo "//trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/:_authToken=${{ secrets.JFROG_ACCESS_TOKEN }}" > ~/.npmrc
+          echo "email=jherrera@bluecorela.com" > ~/.npmrc
+          echo "registry=https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/" > ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
           cat ~/.npmrc
 
