@@ -36,9 +36,10 @@ jobs:
       # Authenticate to JFrog Artifactory
       - name: Configure NPM for JFrog
         run: |
-          echo "//trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/:_authToken=${{ secrets.JFROG_ACCESS_TOKEN }}" > ~/.npmrc
-          echo "email=jherrera@bluecorela.com" > ~/.npmrc
-          echo "registry=https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/" > ~/.npmrc
+          echo "@<SCOPE>:registry=https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/" > ~/.npmrc
+          echo "//trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/:_authToken=${{ secrets.JFROG_ACCESS_TOKEN }}" >> ~/.npmrc
+          echo "email=jherrera@bluecorela.com" >> ~/.npmrc
+          echo "registry=https://trialtoh1md.jfrog.io/artifactory/api/npm/jfrog-test-npm/" >> ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
           cat ~/.npmrc
 
